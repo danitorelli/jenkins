@@ -11,25 +11,17 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm install'
-                
-                // Gerar número de versão baseado no BUILD_NUMBER
-                def version = "1.0.${env.BUILD_NUMBER}"
-                
-                // Atualizar o arquivo index.html com o número de versão
-                sh "sed -i 's/##VERSION##/${version}/' index.html"
             }
         }
 
         stage('Test') {
             steps {
-                // Executar os testes
                 sh 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
-                // Copiar arquivos para o diretório de implantação
                 sh 'mkdir -p /path/to/deploy'
                 sh 'cp index.html /path/to/deploy/'
                 sh 'cp script.js /path/to/deploy/'
