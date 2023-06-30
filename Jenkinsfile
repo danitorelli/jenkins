@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/seu-usuario/seu-repositorio.git'
+                git 'https://github.com/danitorelli/jenkins.git'
             }
         }
 
@@ -40,7 +40,7 @@ pipeline {
             steps {
                 emailext body: 'A pipeline do blog foi concluída com sucesso!',
                     subject: "Notificação de Pipeline - Blog #${env.BUILD_NUMBER}",
-                    to: 'seu-email@example.com'
+                    to: 'dani.ctorelli@edu.unifil.br'
             }
         }
     }
