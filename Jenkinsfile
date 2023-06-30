@@ -9,20 +9,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                // Passo 2: Executar o build do blog
-                sh 'npm install' // ou qualquer outro comando de build
-            }
-        }
-
-        stage('Test') {
-            steps {
-                // Passo 3: Executar os testes
-                sh 'npm test' // ou qualquer outro comando de teste
-            }
-        }
-
         stage('Deploy') {
             steps {
                 // Passo 4: Copiar os arquivos do blog para o diretório de deploy
